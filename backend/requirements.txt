@@ -1,0 +1,10 @@
+fastapi[standard]
+uvicorn
+python-dotenv
+pydantic
+pandas
+pypdf2
+requests
+reportlab
+matplotlib
+sqlalchemy
