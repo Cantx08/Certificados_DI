@@ -6,7 +6,7 @@ from typing import Optional
 
 MIN_YEAR = 1900
 
-class PubType(Enum):
+class PubType(str, Enum):
     """ Enum que representa el tipo de publicación. """
     ARTICLE = "Article"
     CONFERENCE = "Conference Paper"
@@ -30,7 +30,7 @@ class Publication:
     pub_type: PubType
     doi: str
     source: str
-    scopus_account: str
+    scopus_id: str
 
     def is_valid(self) -> bool:
         """ Valida que la publicación tenga los campos obligatorios. """
@@ -41,7 +41,7 @@ class Publication:
             bool(self.pub_type and self.pub_type in PubType) and
             bool(self.doi and self.doi.strip() and self.doi.startswith("10.")) and
             bool(self.source and self.source.strip()) and
-            bool(self.scopus_account and self.scopus_account.strip())
+            bool(self.scopus_id and self.scopus_id.strip())
         )
 
     def is_year_valid(self) -> bool:
